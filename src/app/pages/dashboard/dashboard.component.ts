@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Chart from 'chart.js';
+//import Chart from 'chart.js';
 import { OrderService } from '../../shared/order.service';
 import { JobapplyService } from '../../shared/jobapply.service';
 import { Order } from '../../shared/order.model';
@@ -11,6 +11,8 @@ import { ProjectService } from 'src/app/shared/project.service';
 import { Project } from 'src/app/shared/project.model';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import io from 'socket.io-client';
+const socket = io('http://localhost:3000');
 
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +26,14 @@ export class DashboardComponent implements OnInit {
     public workerService: WorkerService,
     public projectService: ProjectService,
     private toastr: ToastrService
-  ) { }
+  ) {
+    socket.on("newOrderEvent", ()=> {
+      this.refreshReqOrderList();
+    });
+    socket.on("newJobApplicaitonEvent", ()=> {
+      this.refreshJobapplyList();
+    });
+   }
 
   ngOnInit() {
     this.refreshReqOrderList();

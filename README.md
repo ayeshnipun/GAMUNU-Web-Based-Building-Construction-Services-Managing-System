@@ -3,6 +3,9 @@
 This is a web based application implemented using MEAN stack. this system helps to manage Resources,Services,Orders,Workers and Projects of the Gamunu Construction.
 This project was generated with Angular CLI version 7.3.2.
 
+### Enable Backend Server
+To run the backend server, navigate into the backend folder and run nodemon app.js
+
 ### Development server
 Run ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 

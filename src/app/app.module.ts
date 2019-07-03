@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ChartsModule } from 'ng2-charts';
+import { FlatpickrModule } from 'angularx-flatpickr';
 
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -29,6 +31,11 @@ import {UserProfileComponent} from './pages/user-profile/user-profile.component'
 
 import { AuthService } from './shared/user.service'
 import { SharedModule } from './shared/shared.module';
+import { RequestLeavedComponent } from './request-leaved/request-leaved.component';
+import { ViewProjectsdComponent } from './view-projectsd/view-projectsd.component';
+import { WorkerdComponent } from './workerd/workerd.component';
+// import { StatisticsComponent } from './pages/statistics/statistics.component';
+//import { CalendarComponent } from './pages/calendar/calendar.component';
 // import { DashboardComponent } from './pages/dashboard/dashboard.component';
 @NgModule({
   imports: [
@@ -46,7 +53,9 @@ import { SharedModule } from './shared/shared.module';
     }),
     MatButtonModule,
     MatCheckboxModule,
-    SharedModule
+    SharedModule,
+    ChartsModule,
+    FlatpickrModule.forRoot(),
   ],
   declarations: [
     AppComponent,
@@ -58,6 +67,11 @@ import { SharedModule } from './shared/shared.module';
     NavigationBarComponent,
   RegisterComponent,
   WorkerComponent,
+  RequestLeavedComponent,
+  ViewProjectsdComponent,
+  WorkerdComponent,
+  // StatisticsComponent,
+  //CalendarComponent,
 //   DashboardComponent
   // UserProfileComponent
   ],
